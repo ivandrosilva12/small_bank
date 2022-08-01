@@ -1,0 +1,16 @@
+docker pull kjconroy/sqlc
+
+docker run --rm -v ${pwd}:/src -w /src kjconroy/sqlc version
+
+docker run --rm -v ${pwd}:/src -w /src kjconroy/sqlc init
+
+docker run --rm -v ${pwd}:/src -w /src kjconroy/sqlc generate
+
+go mod init simple_bank
+
+go mod tidy
+
+go test -coverprofile=coverage.out ./...
+
+https://wiki.postgresql.org/wiki/Lock_Monitoring
+

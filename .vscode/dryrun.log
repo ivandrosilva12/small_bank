@@ -1,0 +1,5 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'd:/ANO_2022/Software Small Bank/api'
+docker run --name postgres14 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=golang -d postgres:14.4-alpine
+make: Leaving directory 'd:/ANO_2022/Software Small Bank/api'
+ 
