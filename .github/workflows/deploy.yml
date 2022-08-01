@@ -39,7 +39,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install golang-migrate
-      run: migrate
+      run: scoop install migrate
 
     - name: Run migrations
       run: make migrateup
