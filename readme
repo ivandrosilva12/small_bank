@@ -14,3 +14,18 @@ go test -coverprofile=coverage.out ./...
 
 https://wiki.postgresql.org/wiki/Lock_Monitoring
 
+
+-----------------------------------------------------------------------
+git init
+
+git add .
+
+git commit -m "CI workflow"
+
+git branch -M master
+
+git remote add origin https://github.com/ivandrosilva12/small_bank.git
+
+git push origin master
+_______________________________________________________________________
+
