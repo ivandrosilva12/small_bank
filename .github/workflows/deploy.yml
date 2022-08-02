@@ -39,8 +39,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run migrations
-      run: docker run -v "D:/ANO_2022/Software Small Bank/api/db/migration:/migrations" --network host migrate/migrate
-          -path=/migrations/ -database "postgresql://root:golang@localhost:5432/simple_bank?sslmode=disable" up
+      run: docker run -v "D:/ANO_2022/Software Small Bank/api/db/migration":/migrations --network host migrate/migrate
+          -path=/migration/ -database "postgresql://root:golang@localhost:5432/simple_bank?sslmode=disable" up
 
     - name: Test
       run: make test
