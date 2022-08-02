@@ -38,23 +38,9 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
-
-    - name: Install Scoop
-      run: |
-        iwr -useb get.scoop.sh -outfile 'install.ps1'
-        .\install.ps1 -RunAsAdmin
-    - name: Add scoop to actions path
-      run: Join-Path (Resolve-Path ~).Path "scoop\shims" >> $Env:GITHUB_PATH
-    - name: Scoop bucket add
-      run: scoop bucket add utkuozdemir https://github.com/utkuozdemir/scoop-pv-migrate.git
-    - name: Scoop install
-      run: scoop install utkuozdemir/pv-migrate
-    - name: Run command
-      run: pv-migrate --version
-
-
     - name: Run migrations
-      run: make migrateup
+      run: docker run -v D:/ANO_2022/Software Small Bank/api/db/migration:/migrations --network host migrate/migrate
+          -path=/migrations/ -database "postgresql://root:golang@localhost:5432/simple_bank?sslmode=disable" up
 
     - name: Test
       run: make test
